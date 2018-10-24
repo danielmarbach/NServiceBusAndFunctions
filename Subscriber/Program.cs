@@ -11,6 +11,8 @@ class Program
         var endpointConfiguration = new EndpointConfiguration("Samples.ASBS.Subscriber");
         endpointConfiguration.SendFailedMessagesTo("error");
         endpointConfiguration.EnableInstallers();
+        //endpointConfiguration.UseSerialization<XmlSerializer>();
+        endpointConfiguration.UseSerialization<NewtonsoftSerializer>();
 
         var transport = endpointConfiguration.UseTransport<AzureServiceBusTransport>();
 
